@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://pcxq7g730dd"]
+
+[ext_resource type="PackedScene" uid="uid://brvrlg3dl82co" path="res://stages/stage assets/field.glb" id="1_spqad"]
+[ext_resource type="Texture2D" uid="uid://y2xgw5sryreq" path="res://stages/stage assets/bridge2.png" id="2_0rjdd"]
+[ext_resource type="ArrayMesh" uid="uid://k001gc0vec71" path="res://stages/stage assets/bridge.obj" id="2_y2r1r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20775"]
+albedo_texture = ExtResource("2_0rjdd")
+
+[node name="Stage1" type="Node3D"]
+
+[node name="Assets" type="Node3D" parent="."]
+
+[node name="Field" parent="Assets" instance=ExtResource("1_spqad")]
+
+[node name="Bridge" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(-1.45078e-07, 0, 3.319, 0, 2.22635, 0, -3.319, 0, -1.45078e-07, -25.667, 0.188, 19.94)
+material_override = SubResource("StandardMaterial3D_20775")
+mesh = ExtResource("2_y2r1r")
+skeleton = NodePath("../..")
