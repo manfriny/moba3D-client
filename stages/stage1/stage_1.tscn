@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://pcxq7g730dd"]
+[gd_scene load_steps=32 format=3 uid="uid://pcxq7g730dd"]
 
 [ext_resource type="PackedScene" uid="uid://brvrlg3dl82co" path="res://stages/stage assets/field.glb" id="1_spqad"]
 [ext_resource type="Texture2D" uid="uid://y2xgw5sryreq" path="res://stages/stage assets/bridge2.png" id="2_0rjdd"]
@@ -6,13 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://b0n48pbsunbre" path="res://stages/stage assets/house2.png" id="5_s2crt"]
 [ext_resource type="Texture2D" uid="uid://cudrrdu84vggc" path="res://stages/stage assets/house.png" id="6_i17sd"]
 [ext_resource type="ArrayMesh" uid="uid://e7gg613vwtof" path="res://stages/stage assets/house.obj" id="6_wp8vs"]
-[ext_resource type="Texture2D" uid="uid://uaj5ci8syu55" path="res://stages/stage assets/well2.png" id="7_jghxv"]
+[ext_resource type="Texture2D" uid="uid://da2g8fcc7gspp" path="res://stages/stage assets/well.png" id="7_t3cii"]
 [ext_resource type="Texture2D" uid="uid://cevse8dg5dyr2" path="res://stages/stage assets/tree2.png" id="8_lxqx5"]
 [ext_resource type="ArrayMesh" uid="uid://dmki4ytqgopj" path="res://stages/stage assets/well.obj" id="8_u5je7"]
 [ext_resource type="ArrayMesh" uid="uid://bisju2lescwtx" path="res://stages/stage assets/tree.obj" id="9_jwaa5"]
 [ext_resource type="Texture2D" uid="uid://bflto7nvbdb4n" path="res://stages/stage assets/tree.png" id="11_7yohx"]
 [ext_resource type="ArrayMesh" uid="uid://by0tcnjxpleqy" path="res://stages/stage assets/conifer.obj" id="11_a2xim"]
 [ext_resource type="Texture2D" uid="uid://brukfncv8qvi7" path="res://stages/stage assets/conifer.png" id="11_jo50t"]
+[ext_resource type="Texture2D" uid="uid://uaj5ci8syu55" path="res://stages/stage assets/well2.png" id="12_6jafb"]
+[ext_resource type="Texture2D" uid="uid://d1lrnosp4oydv" path="res://stages/stage assets/rock.png" id="14_bn37w"]
+[ext_resource type="ArrayMesh" uid="uid://8k8enycq17s7" path="res://stages/stage assets/rock.obj" id="15_q4gp2"]
+[ext_resource type="Shader" uid="uid://pdq15pncsl41" path="res://stages/stage1/stage_1.tres" id="17_cnaln"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryihu"]
 albedo_texture = ExtResource("2_0rjdd")
@@ -30,7 +34,7 @@ albedo_texture = ExtResource("6_i17sd")
 albedo_texture = ExtResource("5_s2crt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4n4k"]
-albedo_texture = ExtResource("7_jghxv")
+albedo_texture = ExtResource("7_t3cii")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nh2ft"]
 albedo_texture = ExtResource("8_lxqx5")
@@ -38,9 +42,24 @@ albedo_texture = ExtResource("8_lxqx5")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyc23"]
 albedo_texture = ExtResource("11_7yohx")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44y5v"]
+albedo_texture = ExtResource("7_t3cii")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq51f"]
+albedo_texture = ExtResource("12_6jafb")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3ek7"]
 cull_mode = 1
 albedo_texture = ExtResource("11_jo50t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmhtb"]
+albedo_texture = ExtResource("14_bn37w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fr1hh"]
+render_priority = 0
+shader = ExtResource("17_cnaln")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rd5xi"]
 
 [node name="Stage1" type="Node3D"]
 
@@ -49,13 +68,13 @@ albedo_texture = ExtResource("11_jo50t")
 [node name="Field" parent="Assets" instance=ExtResource("1_spqad")]
 
 [node name="Bridge" type="MeshInstance3D" parent="Assets"]
-transform = Transform3D(-1.45078e-07, 0, 3.319, 0, 2.72508, 0, -3.319, 0, -1.45078e-07, -26.767, 0.188, 19.94)
+transform = Transform3D(-1.45078e-07, 0, 3.319, 0, 2.32994, 0, -3.319, 0, -1.45078e-07, -26.767, 0.188, 19.94)
 material_override = SubResource("StandardMaterial3D_ryihu")
 mesh = ExtResource("2_y2r1r")
 skeleton = NodePath("../..")
 
 [node name="Bridge2" type="MeshInstance3D" parent="Assets"]
-transform = Transform3D(-1.45078e-07, 0, 3.319, 0, 2.72508, 0, -3.319, 0, -1.45078e-07, -27.267, 0.188, -23.6067)
+transform = Transform3D(-1.45078e-07, 0, 3.319, 0, 2.32994, 0, -3.319, 0, -1.45078e-07, -27.267, 0.188, -23.6067)
 material_override = SubResource("StandardMaterial3D_20775")
 mesh = ExtResource("2_y2r1r")
 skeleton = NodePath("../..")
@@ -102,6 +121,12 @@ material_override = SubResource("StandardMaterial3D_yr5tk")
 mesh = ExtResource("6_wp8vs")
 skeleton = NodePath("../..")
 
+[node name="House22" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(-1.33823e-07, 0, 2.5, 0, 2.392, 0, -3.06151, 0, -1.09279e-07, 94.9688, 0, -62.6762)
+material_override = SubResource("StandardMaterial3D_yr5tk")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
 [node name="House21" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(3.05896, 0, -0.102074, 0, 2.392, 0, 0.125, 0, 2.49792, 60.6606, 0, 99.7148)
 material_override = SubResource("StandardMaterial3D_yr5tk")
@@ -122,6 +147,54 @@ skeleton = NodePath("../..")
 
 [node name="House6" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(-1.5299e-07, 0, -2.858, 0, 2.734, 0, 3.5, 0, -1.24927e-07, -7.71189, 0, -97.8934)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House23" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, -98.6335, 0, -75.1456)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House24" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, -98.6335, 0, -58.5692)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House26" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, -98.6335, 0, -10.269)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House27" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, -98.6335, 0, 6.3074)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House31" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, 98.7665, 0, -10.269)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House32" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, 98.7665, 0, 6.3074)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House34" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, 98.7665, 0, 55.1792)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House35" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(3.5, 0, 0, 0, 2.734, 0, 0, 0, 2.858, 98.7665, 0, 73.7562)
 material_override = SubResource("StandardMaterial3D_h0wn2")
 mesh = ExtResource("6_wp8vs")
 skeleton = NodePath("../..")
@@ -150,6 +223,18 @@ material_override = SubResource("StandardMaterial3D_h0wn2")
 mesh = ExtResource("6_wp8vs")
 skeleton = NodePath("../..")
 
+[node name="House28" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(-1.6579e-07, 0, -2.858, 0, 2.734, 0, 3.79284, 0, -1.24927e-07, -95.5533, 0, 28.8026)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House30" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(-1.6579e-07, 0, -2.858, 0, 2.734, 0, 3.79284, 0, -1.24927e-07, 94.0837, 0, -34.9546)
+material_override = SubResource("StandardMaterial3D_h0wn2")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
 [node name="House16" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(-1.5299e-07, 0, -2.858, 0, 2.734, 0, 3.5, 0, -1.24927e-07, -59.5425, 0, 95.944)
 material_override = SubResource("StandardMaterial3D_h0wn2")
@@ -174,6 +259,24 @@ material_override = SubResource("StandardMaterial3D_gyryr")
 mesh = ExtResource("6_wp8vs")
 skeleton = NodePath("../..")
 
+[node name="House25" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(-0.0124155, 0, 2.92013, 0, 2.918, 0, -4.13594, 0, -0.00876583, -93.4055, 0, -34.7627)
+material_override = SubResource("StandardMaterial3D_gyryr")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House29" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(-0.0124155, 0, 2.92013, 0, 2.918, 0, -4.13594, 0, -0.00876583, -93.11, 0, 63.6727)
+material_override = SubResource("StandardMaterial3D_gyryr")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
+[node name="House33" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(-0.0124155, 0, 2.92013, 0, 2.918, 0, -4.13594, 0, -0.00876583, 96.8899, 0, 29.6009)
+material_override = SubResource("StandardMaterial3D_gyryr")
+mesh = ExtResource("6_wp8vs")
+skeleton = NodePath("../..")
+
 [node name="Well" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 13.8857, 0, -12.2608)
 material_override = SubResource("StandardMaterial3D_y4n4k")
@@ -186,8 +289,20 @@ material_override = SubResource("StandardMaterial3D_nh2ft")
 mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
 
+[node name="Tree15" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -82.551, 0, -83.9242)
+material_override = SubResource("StandardMaterial3D_nh2ft")
+mesh = ExtResource("9_jwaa5")
+skeleton = NodePath("../..")
+
 [node name="Tree3" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 22.8937, 0, -88.4082)
+material_override = SubResource("StandardMaterial3D_vyc23")
+mesh = ExtResource("9_jwaa5")
+skeleton = NodePath("../..")
+
+[node name="Tree16" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -83.9063, 0, 79.9918)
 material_override = SubResource("StandardMaterial3D_vyc23")
 mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
@@ -205,7 +320,13 @@ mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
 
 [node name="Tree8" type="MeshInstance3D" parent="Assets"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 79.2007, 0, 99.0974)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 84.4007, 0, 99.0974)
+material_override = SubResource("StandardMaterial3D_vyc23")
+mesh = ExtResource("9_jwaa5")
+skeleton = NodePath("../..")
+
+[node name="Tree14" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 76.2007, 0, 99.0974)
 material_override = SubResource("StandardMaterial3D_vyc23")
 mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
@@ -218,6 +339,12 @@ skeleton = NodePath("../..")
 
 [node name="Tree7" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 88.6007, 0, 96.2974)
+material_override = SubResource("StandardMaterial3D_vyc23")
+mesh = ExtResource("9_jwaa5")
+skeleton = NodePath("../..")
+
+[node name="Tree13" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 94.6007, 0, 91.8974)
 material_override = SubResource("StandardMaterial3D_vyc23")
 mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
@@ -240,6 +367,18 @@ material_override = SubResource("StandardMaterial3D_y4n4k")
 mesh = ExtResource("8_u5je7")
 skeleton = NodePath("../..")
 
+[node name="Well3" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -74.8643, 0, 79.1286)
+material_override = SubResource("StandardMaterial3D_44y5v")
+mesh = ExtResource("8_u5je7")
+skeleton = NodePath("../..")
+
+[node name="Well4" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -73.3643, 0, -81.8714)
+material_override = SubResource("StandardMaterial3D_gq51f")
+mesh = ExtResource("8_u5je7")
+skeleton = NodePath("../..")
+
 [node name="Tree2" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 26.049, 0, 14.8647)
 material_override = SubResource("StandardMaterial3D_nh2ft")
@@ -253,13 +392,19 @@ mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
 
 [node name="Tree10" type="MeshInstance3D" parent="Assets"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 78.9492, 0, 92.2376)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 94.9492, 0, 84.4376)
 material_override = SubResource("StandardMaterial3D_nh2ft")
 mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
 
 [node name="Tree11" type="MeshInstance3D" parent="Assets"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 44.849, 0, 91.0647)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 44.849, 0, 93.6647)
+material_override = SubResource("StandardMaterial3D_nh2ft")
+mesh = ExtResource("9_jwaa5")
+skeleton = NodePath("../..")
+
+[node name="Tree12" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 80.649, 0, 97.6647)
 material_override = SubResource("StandardMaterial3D_nh2ft")
 mesh = ExtResource("9_jwaa5")
 skeleton = NodePath("../..")
@@ -300,6 +445,12 @@ material_override = SubResource("StandardMaterial3D_n3ek7")
 mesh = ExtResource("11_a2xim")
 skeleton = NodePath("../..")
 
+[node name="Conifer19" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15.7571, 0, 76.5629)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
 [node name="Conifer11" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -15.7571, 0, -76.6121)
 material_override = SubResource("StandardMaterial3D_n3ek7")
@@ -312,14 +463,50 @@ material_override = SubResource("StandardMaterial3D_n3ek7")
 mesh = ExtResource("11_a2xim")
 skeleton = NodePath("../..")
 
+[node name="Conifer20" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -15.7571, 0, 68.6179)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
 [node name="Conifer13" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15.7571, 0, -68.9121)
 material_override = SubResource("StandardMaterial3D_n3ek7")
 mesh = ExtResource("11_a2xim")
 skeleton = NodePath("../..")
 
+[node name="Conifer18" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15.7571, 0, 83.6379)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
 [node name="Conifer2" type="MeshInstance3D" parent="Assets"]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -36.9321, 0, -5.48964)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer14" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -36.9321, 0, 81.4854)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer15" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -36.9321, 0, 74.1354)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer17" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -36.9321, 0, 67.1354)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer16" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -36.9321, 0, 74.1354)
 material_override = SubResource("StandardMaterial3D_n3ek7")
 mesh = ExtResource("11_a2xim")
 skeleton = NodePath("../..")
@@ -341,3 +528,278 @@ transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -36.9321, 0, 32.3104
 material_override = SubResource("StandardMaterial3D_n3ek7")
 mesh = ExtResource("11_a2xim")
 skeleton = NodePath("../..")
+
+[node name="Conifer21" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -16.4571, 0, 32.3104)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer22" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -16.4571, 0, 8.8604)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer23" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -16.4571, 0, 1.5104)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer24" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -16.4571, 0, -6.0146)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Conifer25" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -16.4571, 0, -13.1896)
+material_override = SubResource("StandardMaterial3D_n3ek7")
+mesh = ExtResource("11_a2xim")
+skeleton = NodePath("../..")
+
+[node name="Rock" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.6, 0, 39.4)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock9" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.6, 0, 63.2)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock10" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15, 0, 58.8)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock3" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.8, 0, 43.4)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock2" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8, 0.207825, 42.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock8" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2, 0.207825, 56)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock4" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.6, 0, 46.8)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock21" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.6, 0, -64.4)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock22" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.6, 0, -40.6)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock23" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15, 0, -45)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock24" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.6, 0, -57)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock31" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -37.2, 0, -64.4)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock32" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -37.2, 0, -40.6)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock33" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -35.6, 0, -45)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock34" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -37.2, 0, -57)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock11" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -39, 0, 39.4)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock12" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -39, 0, 63.2)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock13" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -37.4, 0, 58.8)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock14" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -39, 0, 46.8)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock5" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.35, 0, 51.2)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock7" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15.25, 0, 54.05)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock25" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.8, 0, -60.7)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock26" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.35, 0, -52.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock27" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15.25, 0, -50.05)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock35" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -38.8, 0, -60.7)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock36" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -38.35, 0, -52.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock37" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -36.25, 0, -50.05)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock15" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -39.85, 0, 43.4)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock16" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -39.4, 0, 51.2)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock17" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -37.3, 0, 54.05)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock6" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8, 0.207825, 49.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock28" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8, 0.207825, -61)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock29" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2, 0.207825, -47.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock30" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8, 0.207825, -54)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock38" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7, 0.207825, -61)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock39" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.1, 0.207825, -47.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock40" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7, 0.207825, -54)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock18" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1, 0.207825, 42.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock19" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5, 0.207825, 56)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="Rock20" type="MeshInstance3D" parent="Assets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1, 0.207825, 49.9)
+material_override = SubResource("StandardMaterial3D_kmhtb")
+mesh = ExtResource("15_q4gp2")
+skeleton = NodePath("../..")
+
+[node name="River" type="MeshInstance3D" parent="."]
+transform = Transform3D(18.6845, 0, 0, 0, -8.75166e-06, 10.8396, 0, -200.215, -4.73815e-07, -27.4744, 0.1, 0)
+material_override = SubResource("ShaderMaterial_fr1hh")
+mesh = SubResource("QuadMesh_rd5xi")
